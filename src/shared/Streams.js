@@ -143,7 +143,7 @@ const antenaSongDataFunc = (url, setFunc) => {
   };
 
   fetch("https://api.allorigins.win/get?url=" + encodeURIComponent(url))
-    .then((response) => response.json())
+    .then((response) => response.text())
     .then((result) => {
       data.nowplaying = `${result?.contents.split(" - ")[1]}`;
       data.artist = result?.contents.split(" - ")[0];
@@ -366,13 +366,13 @@ const streams = [
     currentSongDataFunc: otvoreniSongDataFunc,
   },
   {
-    name: "Banovina Domoljubni",
-    url: "https://audio.radio-banovina.hr:7018/stream",
-    web: "https://www.radio-banovina.hr/",
-    radioLogo: "https://upload.wikimedia.org/wikipedia/hr/0/0b/Radio_Banovina_logo.jpg",
-    historyUrl: "https://www.radio-banovina.hr/domoljubni/povijest.html",
-    currentSongUrl: "https://pool.alter-media.hr:2020/json/stream/domoljubni",
-    currentSongDataFunc: banovinaSongDataFunc,
+    name: "Antena Božić",
+    url: "https://audio.social3.hr/listen/antena_love/stream",
+    web: "https://www.antenazagreb.hr/",
+    radioLogo: "https://www.antenazagreb.hr/wp-content/uploads/2018/03/ANTENA-LOGOTIP-2018-color-landscape-2.png",
+    historyUrl: "https://streaming.antenazagreb.hr/stream/player/player.html",
+    currentSongUrl: "https://streaming.antenazagreb.hr/stream/player/info/listen_antena_love_.txt",
+    currentSongDataFunc: antenaSongDataFunc,
   },
 ];
 
